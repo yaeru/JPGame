@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Jurassic Park - Game</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Jurassic Park - Bienvenido <span id="player-name"></span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Configuraciones</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Puntajes</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="modal fade" id="paddockModal" tabindex="-1" aria-labelledby="paddockModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="paddockModalLabel">Paddock de dinosaurios</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Contenido del modal aquí -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<div class="container-fluid my-3">
+		<div class="row">
+			<div class="col-md-9">
+				<ul class="nav nav-pills nav-fill mb-3">
+					<li class="nav-item">
+						<a href="#" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-1">Animales</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">Seguridad del Parque</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">Visitantes</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane fade show active" id="tab-1">
+						<h2>Animales</h2>
+						<p id="animal-count"></p>
+
+						<div class="row">
+							<div class="col">
+								<div id="map" class="card card-body" style="height: 100%;">
+									<h4>🍖<span id="meat-counter"></span>/500</h4>
+									<h4>🌿<span id="plants-counter"></span>/500</h4>
+								</div>
+							</div>
+							<div class="col">
+								<div id="dinosaur-list"></div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="tab-2">
+						<h2>Seguridad del Parque</h2>
+						<p>Contenido de la Seguridad</p>
+					</div>
+					<div class="tab-pane fade" id="tab-3">
+						<h2>Visitantes</h2>
+						<p>Contenido de la Visitantes</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card card-body py-2 alert-success mb-3">
+					<h3>Estado del Parque</h3>
+					<p>Perfecto</p>
+				</div>
+
+				<div class="card card-body py-2 mb-3">
+					<h3>Clima</h3>
+					<p>🌤</p>
+				</div>
+
+				<div class="card card-body py-2">
+					<p class="mb-0">🕔 Horas restantes: <span id="tiempo-restante"></span></p>
+					<p class="mb-2">📅 Dias a salvo: <span id="turno-actual"></span></p>
+					<button id="btn-finalizar-turno" class="btn btn-warning">Finalizar Día</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Custom JS -->
+	<script src="game.js"></script>
+
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
