@@ -7,6 +7,36 @@ const playerSpan = document.getElementById('player-name');
 playerSpan.textContent = playerName;
 console.log(`Bienvenido/a, ${playerName}!`);
 
+
+// CLIMA
+const climaActualElement = document.getElementById('clima-actual');
+
+// Definir los posibles estados de clima y sus probabilidades
+const estadosClima = [
+  {estado: '☀ Soleado', chance: 0.6},
+  {estado: '☁ Nublado', chance: 0.2},
+  {estado: '🌧 Lluvia', chance: 0.1},
+  {estado: '🌩 Tormenta', chance: 0.05},
+  {estado: '🌪 Huracán', chance: 0.05},
+];
+
+function actualizarClima() {
+  let climaActual = '';
+  let random = Math.random();
+
+  for (let i = 0; i < estadosClima.length; i++) {
+    const estadoClima = estadosClima[i];
+
+    if (random <= estadoClima.chance) {
+      climaActual = estadoClima.estado;
+      break;
+    }
+
+    random -= estadoClima.chance;
+  }
+  climaActualElement.innerText = climaActual;
+}
+
 let meat = 250;
 let plants = 250;
 let meatToAdd = 10;
@@ -38,7 +68,6 @@ meatCounter.innerHTML = meat;
 plantsCounter.innerHTML = plants;
 
 // Mood base ni bien comienza el juego
-
 function mood(dinosaur) {	
 	if (dinosaur.hunger <= 33) {
 		dinosaur.mood = "😀";
@@ -113,6 +142,8 @@ const turnoActualElemento = document.getElementById('turno-actual');
 turnoActualElemento.innerHTML = turnoActual;
 
 function iniciarTurno() {
+	// Actualizar clima
+  actualizarClima();
   // Habilitar botones de alimentar
 	document.querySelectorAll('.btn-success').forEach(btn => btn.disabled = false);
 
@@ -121,7 +152,7 @@ function iniciarTurno() {
 	btnFinalizarTurno.disabled = true;
 
   // Establecer tiempo restante a 30 segundos
-	tiempoRestante = 5;
+	tiempoRestante = 1;
 	mostrarTiempoRestante();
 
   // Iniciar intervalo para decrementar tiempo restante
@@ -181,14 +212,14 @@ function finalizarTurno() {
 	// Detener intervalo
 	clearInterval(intervalo);
 
-  	// Incrementar turno actual
+  // Incrementar turno actual
 	turnoActual++;
 	mostrarTurnoActual();
 
-  	// Deshabilitar botones de alimentar
+  // Deshabilitar botones de alimentar
 	document.querySelectorAll('.btn-success').forEach(btn => btn.disabled = true);
 
-  	// Deshabilitar botón de finalizar turno
+  // Deshabilitar botón de finalizar turno
 	const btnFinalizarTurno = document.getElementById('btn-finalizar-turno');
 	btnFinalizarTurno.disabled = false;
 }
@@ -221,3 +252,5 @@ const numMuertos = muertos.length;
 
 // Imprimir la lista de dinos vivos y muertos
 document.getElementById("animal-count").innerHTML = `${numVivos} animales vivos y ${numMuertos} animales muertos`;
+
+

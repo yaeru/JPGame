@@ -29,6 +29,7 @@
 			</div>
 		</div>
 	</nav>
+
 	<div class="modal fade" id="paddockModal" tabindex="-1" aria-labelledby="paddockModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -55,6 +56,9 @@
 					</li>
 					<li class="nav-item">
 						<a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">Seguridad del Parque</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">Laboratorio</a>
 					</li>
 					<li class="nav-item">
 						<a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">Visitantes</a>
@@ -88,20 +92,32 @@
 				</div>
 			</div>
 			<div class="col-md-3">
+
+				<div class="card card-body mb-3">
+					<h4>Registro</h4>
+					<p class="mb-0">🕔 Horas restantes: <span id="tiempo-restante"></span></p>
+					<p class="mb-3">📅 Dias a salvo: <span id="turno-actual"></span></p>
+					<button id="btn-finalizar-turno" class="btn btn-warning">Finalizar Día</button>
+				</div>
 				<div class="card card-body py-2 alert-success mb-3">
 					<h3>Estado del Parque</h3>
 					<p>Perfecto</p>
 				</div>
 
-				<div class="card card-body py-2 mb-3">
-					<h3>Clima</h3>
-					<p>🌤</p>
+				<div class="card card-body mb-3">
+					<h4>Clima</h4>
+					<p id="clima-actual"></p>
 				</div>
 
-				<div class="card card-body py-2">
-					<p class="mb-0">🕔 Horas restantes: <span id="tiempo-restante"></span></p>
-					<p class="mb-2">📅 Dias a salvo: <span id="turno-actual"></span></p>
-					<button id="btn-finalizar-turno" class="btn btn-warning">Finalizar Día</button>
+				<div class="card card-body bg-secondary text-light">
+					<h4>Consola de Mensajes</h4>
+					<ul>
+						<li>Mensaje de ejemplo</li>
+						<li>Mensaje de ejemplo</li>
+						<li>Mensaje de ejemplo</li>
+						<li>Mensaje de ejemplo</li>
+						<li>Mensaje de ejemplo</li>
+					</ul>
 				</div>
 			</div>
 		</div>
